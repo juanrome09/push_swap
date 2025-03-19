@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
+/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/13 09:53:46 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/03/17 20:21:14 by juanrome         ###   ########.fr       */
+/*   Updated: 2024/10/24 16:55:03 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ char	**ft_split(const char *s, char c)
 	size_t	*aux_b;
 	size_t	*aux_e;
 	size_t	n;
-	int 	i = 0;
 
 	if (!s)
 		return (NULL);
@@ -112,42 +111,41 @@ char	**ft_split(const char *s, char c)
 	n = -1;
 	while (++n < ft_count_words(s, c))
 	{
-		i++;
 		*(ptr + n) = ft_substr(s, aux_b[n], (aux_e[n] - aux_b[n] + 1));
 		if (!*(ptr + n))
 			return (ft_free(ptr, n, aux_b, aux_e));
 	}
-	printf("Argumentos dentro del string: %d\n",  i);
 	return (free(aux_b), free(aux_e), ptr);
 }
 
+/*
+int	main(void)
+{
+	const char	*str = "hola,mundo,esto,es,una,prueba";
+	char		delimiter;
+	char		**resultado;
+	int			i;
 
-// int	main(void)
-// {
-// 	const char	*str = "hola,mundo,esto,es,una,prueba";
-// 	char		delimiter;
-// 	char		**resultado;
-// 	int			i;
-
-// 	delimiter = ',';
-// 	resultado = ft_split(str, delimiter);
-// 	if (!resultado)
-// 	{
-// 		printf("Error al dividir la cadena\n");
-// 		return (1);
-// 	}
-// 	i = 0;
-// 	while (resultado[i] != NULL)
-// 	{
-// 		printf("Subcadena %d: %s\n", i, resultado[i]);
-// 		i++;
-// 	}
-// 	i = 0;
-// 	while (resultado[i] != NULL)
-// 	{
-// 		free(resultado[i]);
-// 		i++;
-// 	}
-// 	free(resultado);
-// 	return (0);
-// }
+	delimiter = ',';
+	resultado = ft_split(str, delimiter);
+	if (!resultado)
+	{
+		printf("Error al dividir la cadena\n");
+		return (1);
+	}
+	i = 0;
+	while (resultado[i] != NULL)
+	{
+		printf("Subcadena %d: %s\n", i, resultado[i]);
+		i++;
+	}
+	i = 0;
+	while (resultado[i] != NULL)
+	{
+		free(resultado[i]);
+		i++;
+	}
+	free(resultado);
+	return (0);
+}
+*/
