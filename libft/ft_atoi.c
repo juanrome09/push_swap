@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
+/*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 21:54:19 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/19 17:54:18 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/15 21:00:33 by alejagom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int	ft_atoi(const char *str)
 	return (res * sig);
 }
 
-
-/* int	main(void)
+/*
+int	main(void)
 {
 	char	str[20];
 	int		num;
@@ -47,4 +47,5 @@ int	ft_atoi(const char *str)
 	num = ft_atoi(str);
 	printf("El número es: %d\n", num);
 	return (0);
-} */
+}
+*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
+/*   By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 21:54:08 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/15 09:44:58 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/03/20 23:50:41 by alejogogi        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_bzero(void *s, size_t n)
 		c++;
 	}
 }
-
 
 // int	main(void)
 // {
