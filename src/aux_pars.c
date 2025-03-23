@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   auxparce.c                                         :+:      :+:    :+:   */
+/*   aux_pars.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 22:58:03 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/03/23 20:52:58 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/23 21:13:32 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ int is_duplicate(int *array, int size, int num)
     {
         if (array[i] == num)
             return (1); // Devuelve 1 si hay un duplicado.
+		i++;
     }
-	i++;
     return (0); // Devuelve 0 si no hay duplicados.
 }
 
