@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/22 22:17:29 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/24 00:52:51 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int argc, char **argv)
 	}
 	if (!parceo(argv, stacks))
 	{
-		printf("Error: Argumentos no válidos.\n");
+		printf("Error\n");
 		free(stacks);
 		return (1);
 	}

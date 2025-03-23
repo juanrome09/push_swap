@@ -6,60 +6,34 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 22:58:03 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/03/24 00:08:59 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/24 00:53:27 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	single_number(const char *str)
+int isnumber(char **strs)
 {
-	int	j;
-
-	j = 0;
-	if (str == NULL)
-		return (0);
-	if (str[j] == '-' || str[j] == '+')
-	{
-		j++;
-	}
-	if (str[j] == '\0')
-	{
-		return (0);
-	}
-	while (str[j] != '\0')
-	{
-		if (!isdigit(str[j]))
-		{
-			return (0);
-		}
-		j++;
-	}
-	return (1);
+	const char *s;
+	
+    while (*strs != NULL)
+    {
+        s = *strs;
+        if (*s == '-' || *s == '+')
+            s++;
+        if (*s == '\0')
+            return (0);
+        while (*s != '\0')
+        {
+            if (!isdigit(*s))
+                return (0);
+            s++;
+        }
+        strs++;
+    }
+    return (1);
 }
 
-int	are_all_numbers(char **strs)
-{
-	while (*strs != NULL)
-	{
-		if (!single_number(*strs))
-		{
-			return (0);
-		}
-		strs++;
-	}
-	return (1);
-}
-
-int	isnumber(char **str)
-{
-	if (!are_all_numbers(str))
-	{
-		free_wd(str);
-		return (0);
-	}
-	return (1);
-}
 
 int	is_duplicate(int *array, int size, int num)
 {
