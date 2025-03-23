@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 20:36:41 by juanrome          #+#    #+#             */
-/*   Updated: 2025/03/22 22:08:47 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/23 20:40:38 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stacks	*init_stacks(void)
 	stacks = malloc(sizeof(t_stacks));
 	if (!stacks)
 	{
-		printf("No se asigno memoria para las pilas\n");
+		printf("Error");
 	}
 	stacks->stack_a = NULL;
 	stacks->stack_b = NULL;

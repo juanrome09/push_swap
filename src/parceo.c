@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/22 22:20:42 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/23 20:58:37 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,34 +27,28 @@ void	free_wd(char **words)
 	free(words);
 }
 
-int	parceo(char **args, t_stacks *stacks)
+int parceo(char **args, t_stacks *stacks)
 {
-	int		i;
-	int		ln;
-	int		atoi;
-	char	**split_result;
-	char	**temp;
+    int     i;
+    int     ln;
+    int     *numbers;
+	char 	**split_result;
 
-	i = 1;
-	ln = 0;
-	while (args[i] != NULL)
-	{
-		split_result = ft_split(args[i], ' ');
-		temp = split_result;
-		if (!isnumber(split_result) || !single_number(*split_result))
-			return (0);
-		while (*temp != NULL)
-		{
-			ln++;
-			printf("argumento ya separado: %s\n", *temp);
-			atoi = ft_atoi(*temp);
-			push(&stacks->stack_a, atoi);
-			printf("argumento convertido a int: %d\n", atoi);
-			temp++;
-		}
-		free_wd(split_result);
-		i++;
-	}
-	printf("cantidad de args: %d\n", ln);
-	return (1);
+    i = 1;
+    ln = 0;
+    numbers = malloc(sizeof(int) * 1000);
+    if (!numbers)
+        return (0);
+    while (args[i] != NULL)
+    {
+        split_result = ft_split(args[i], ' ');
+        if (!split_result)
+            return (0);
+        aux_s(split_result, stacks, numbers, &ln);
+        free_wd(split_result);
+        i++;
+    }
+    free(numbers);
+    printf("cantidad de args: %d\n", ln);
+    return (1);
 }
