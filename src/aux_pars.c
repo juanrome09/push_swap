@@ -6,34 +6,33 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 22:58:03 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/03/24 00:53:27 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/24 00:57:22 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int isnumber(char **strs)
+int	isnumber(char **strs)
 {
-	const char *s;
-	
-    while (*strs != NULL)
-    {
-        s = *strs;
-        if (*s == '-' || *s == '+')
-            s++;
-        if (*s == '\0')
-            return (0);
-        while (*s != '\0')
-        {
-            if (!isdigit(*s))
-                return (0);
-            s++;
-        }
-        strs++;
-    }
-    return (1);
-}
+	const char	*s;
 
+	while (*strs != NULL)
+	{
+		s = *strs;
+		if (*s == '-' || *s == '+')
+			s++;
+		if (*s == '\0')
+			return (0);
+		while (*s != '\0')
+		{
+			if (!isdigit(*s))
+				return (0);
+			s++;
+		}
+		strs++;
+	}
+	return (1);
+}
 
 int	is_duplicate(int *array, int size, int num)
 {

@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 20:36:41 by juanrome          #+#    #+#             */
-/*   Updated: 2025/03/23 20:40:38 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/24 00:55:34 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_stacks	*init_stacks(void)
 	stacks = malloc(sizeof(t_stacks));
 	if (!stacks)
 	{
-		printf("Error");
+		printf("Error reservando memoria para init listas\n");
 	}
 	stacks->stack_a = NULL;
 	stacks->stack_b = NULL;
@@ -32,7 +32,7 @@ void	push(t_node **stack, int value)
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		printf("Error");
+		printf("Error reservando memoria para push listas");
 	new_node->value = value;
 	new_node->next = *stack;
 	*stack = new_node;

@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/24 00:51:45 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/24 01:07:02 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,17 @@ void	free_wd(char **words)
 	free(words);
 }
 
-int	parceo(char **args, t_stacks *stacks)
+int	check_split(char **split_result, int *numbers)
+{
+	if (!split_result || !isnumber(split_result))
+	{
+		free_wd(split_result);
+		free(numbers);
+		return (0);
+	}
+}
+
+int	parseo(char **args, t_stacks *stacks)
 {
 	int		i;
 	int		ln;
@@ -42,14 +52,8 @@ int	parceo(char **args, t_stacks *stacks)
 	while (args[i] != NULL)
 	{
 		split_result = ft_split(args[i], ' ');
-		if (!split_result)
+		if (!check_split(split_result, numbers))
 			return (0);
-		if (!isnumber(split_result))
-        {
-            free_wd(split_result);
-            free(numbers);
-            return (0);
-        }
 		aux_s (split_result, stacks, numbers, &ln);
 		free_wd (split_result);
 		i++;

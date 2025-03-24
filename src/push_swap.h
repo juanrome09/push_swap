@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/23 20:53:32 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/24 01:04:20 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_stacks
 
 int			is_duplicate(int *array, int size, int num);
 void		aux_s(char **split, t_stacks *stacks, int *num, int *ln);
-int			parceo(char **args, t_stacks *stacks);
+int			parseo(char **args, t_stacks *stacks);
 int			isnumber(char **str);
 int			single_number(const char *str);
 int			are_all_numbers(char **strs);

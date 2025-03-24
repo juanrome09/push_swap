@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/24 00:52:51 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/24 01:07:34 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 		printf("Error: No se pudo inicializar las pilas.\n");
 		return (1);
 	}
-	if (!parceo(argv, stacks))
+	if (!parseo(argv, stacks))
 	{
 		printf("Error\n");
 		free(stacks);
