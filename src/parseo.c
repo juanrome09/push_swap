@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/24 01:07:02 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:17:11 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,9 @@ int	check_split(char **split_result, int *numbers)
 	{
 		free_wd(split_result);
 		free(numbers);
-		return (0);
+		return 0;
 	}
+	return (1);
 }
 
 int	parseo(char **args, t_stacks *stacks)
@@ -46,7 +47,7 @@ int	parseo(char **args, t_stacks *stacks)
 
 	i = 1;
 	ln = 0;
-	numbers = malloc(sizeof(int) * 1000);
+	numbers = malloc(sizeof(int) * 10000);
 	if (!numbers)
 		return (0);
 	while (args[i] != NULL)
@@ -58,6 +59,7 @@ int	parseo(char **args, t_stacks *stacks)
 		free_wd (split_result);
 		i++;
 	}
+	
 	free (numbers);
 	printf ("cantidad de args: %d\n", ln);
 	return (1);

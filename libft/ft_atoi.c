@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+        */
+/*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 21:54:19 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/15 21:00:33 by alejagom         ###   ########.fr       */
+/*   Updated: 2025/03/26 14:57:41 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	long	res;
 	long	sig;
@@ -32,6 +32,11 @@ int	ft_atoi(const char *str)
 	{
 		res = res * 10 + (*str - '0');
 		str++;
+		if (res * sig < INT_MIN || res * sig > INT_MAX)
+		{
+			printf("Error: Número fuera del rango permitido para un int.\n");
+			exit(1);
+		}
 	}
 	return (res * sig);
 }

@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/24 01:04:20 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/26 14:30:09 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_node
 {

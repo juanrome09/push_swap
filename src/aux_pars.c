@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 22:58:03 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/03/24 00:57:22 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:00:18 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ int	isnumber(char **strs)
 	return (1);
 }
 
-int	is_duplicate(int *array, int size, int num)
+int	is_duplicate(int *num, int size, int atoi)
 {
 	int	i;
 
 	i = 0;
 	while (i < size)
 	{
-		if (array[i] == num)
+		if (num[i] == atoi)
 			return (1);
 		i++;
 	}
@@ -50,18 +50,18 @@ int	is_duplicate(int *array, int size, int num)
 
 void	aux_s(char **split, t_stacks *stacks, int *num, int *ln)
 {
-	int	atoi;
+	long	atoi;
 
 	while (*split)
 	{
 		atoi = ft_atoi(*split);
-		if (is_duplicate(num, *ln, atoi))
+		if (is_duplicate(num, *ln, (int)atoi))
 		{
-			printf("Error: El número %d está duplicado.\n", atoi);
+			printf("Error: El número %ld está duplicado.\n", atoi);
 			exit(1);
 		}
-		num[(*ln)++] = atoi;
-		push(&stacks->stack_a, atoi);
+		num[(*ln)++] = (int)atoi;
+		push(&stacks->stack_a, (int)atoi);
 		split++;
 	}
 }
