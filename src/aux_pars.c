@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 22:58:03 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/03/26 20:03:10 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/26 20:12:44 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,14 @@ void	aux_s(char **split, t_stacks *stacks, int *num, int *ln)
 		num[(*ln)++] = (int)atoi;
 		push(&stacks->stack_a, (int)atoi);
 		split++;
-		 printf("Contenido de stack_a: ");
+		 printf("Contenido de stack_a: \n");
     t_node *actual = stacks->stack_a; // Creamos un puntero temporal
     while (actual != NULL)
     {
-        printf("%d ", actual->value); // Imprime el valor del nodo actual
+        printf("nodo --> %d \n", actual->value); // Imprime el valor del nodo actual
         actual = actual->next;        // Avanza al siguiente nodo
     }
     printf("\n"); // Nueva línea al final
 	}
+
 }
