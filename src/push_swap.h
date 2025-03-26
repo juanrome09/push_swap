@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/26 14:30:09 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:37:48 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_stacks
 	t_node	*stack_b; // Pila B
 }	t_stacks;
 
-int			is_duplicate(int *array, int size, int num);
+int			is_duplicate(int *num, int ln, int atoi);
 void		aux_s(char **split, t_stacks *stacks, int *num, int *ln);
 int			parseo(char **args, t_stacks *stacks);
 int			isnumber(char **str);

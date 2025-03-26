@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 22:58:03 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/03/26 15:00:18 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:37:30 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ int	isnumber(char **strs)
 	return (1);
 }
 
-int	is_duplicate(int *num, int size, int atoi)
+int	is_duplicate(int *num, int ln, int atoi)
 {
 	int	i;
 
 	i = 0;
-	while (i < size)
+	while (i < ln)
 	{
 		if (num[i] == atoi)
 			return (1);
