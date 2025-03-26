@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/26 15:37:48 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/26 19:55:12 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,7 @@ int			are_all_numbers(char **strs);
 void		free_wd(char **words);
 void		push(t_node **stack, int value);
 t_stacks	*init_stacks(void);
+void		free_stacks(t_stacks *stacks);
+void		free_node(t_node **stack);
 
 #endif

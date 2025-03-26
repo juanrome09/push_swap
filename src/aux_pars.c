@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 22:58:03 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/03/26 15:37:30 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/26 20:03:10 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,17 @@ void	aux_s(char **split, t_stacks *stacks, int *num, int *ln)
 		if (is_duplicate(num, *ln, (int)atoi))
 		{
 			printf("Error: El número %ld está duplicado.\n", atoi);
-			exit(1);
 		}
 		num[(*ln)++] = (int)atoi;
 		push(&stacks->stack_a, (int)atoi);
 		split++;
+		 printf("Contenido de stack_a: ");
+    t_node *actual = stacks->stack_a; // Creamos un puntero temporal
+    while (actual != NULL)
+    {
+        printf("%d ", actual->value); // Imprime el valor del nodo actual
+        actual = actual->next;        // Avanza al siguiente nodo
+    }
+    printf("\n"); // Nueva línea al final
 	}
 }
