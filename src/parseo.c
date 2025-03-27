@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/27 13:40:16 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/27 17:56:27 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	parseo(char **args, t_stacks *stacks)
 
 	i = 1;
 	ln = 0;
-	num = malloc(sizeof(int) * 10000);
+	num = malloc(sizeof(int) * 500);
 	if (!num)
 		return (0);
 	while (args[i] != NULL)
