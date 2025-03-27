@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/26 19:40:43 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/27 13:40:16 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	check_split(char **split_result, int *numbers)
 	if (!split_result || !isnumber(split_result))
 	{
 		free_wd(split_result);
-		free(numbers);
 		return (0);
 	}
 	return (1);
@@ -55,11 +54,10 @@ int	parseo(char **args, t_stacks *stacks)
 		spl_re = ft_split(args[i], ' ');
 		if (!check_split(spl_re, num))
 		{
+			free(num);
 			free_stacks(stacks);
-			free (num);
 			return (0);
-		}
-			
+		}	
 		aux_s (spl_re, stacks, num, &ln);
 		free_wd (spl_re);
 		i++;
