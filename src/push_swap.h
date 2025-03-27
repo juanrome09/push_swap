@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/27 17:31:15 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:29:50 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,12 @@ void		merge_stacks(t_node **stack_a, t_node **stack_b, int *count);
 void    	quicksort_stacks(t_node **stack_a, t_node **stack_b, int *count);
 int			stack_size(t_node *stack);
 int			compare(const void *a, const void *b);
+void sort_two(t_node **stack, int *count);
+void sort_three(t_node **stack, int *count);
+void sort_four(t_node **stack_a, t_node **stack_b, int *count);
+void sort_five(t_node **stack_a, t_node **stack_b, int *count);
+void sort_six_or_seven(t_node **stack_a, t_node **stack_b, int *count, int size);
+int find_min(t_node *stack);
+int find_second_min(t_node *stack);
 
 #endif

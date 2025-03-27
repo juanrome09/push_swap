@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 16:38:30 by juanrome          #+#    #+#             */
-/*   Updated: 2025/03/27 18:05:55 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:22:50 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,20 +82,26 @@ void    merge_stacks(t_node **stack_a, t_node **stack_b, int *count)
     }
 }
 
-void    quicksort_stacks(t_node **stack_a, t_node **stack_b, int *count)
-{
-    int pivot;
-    
-    if (!(*stack_a) || !((*stack_a)->next))
+void quicksort_stacks(t_node **stack_a, t_node **stack_b, int *count) {
+    int size = stack_size(*stack_a);
+
+    if (size <= 1) {
         return;
-
-    pivot = select_pivot(*stack_a);
-    split_stacks(stack_a, stack_b, pivot, count);
-    
-    if (*stack_a && (*stack_a)->next)
+    } else if (size == 2) {
+        sort_two(stack_a, count);
+    } else if (size == 3) {
+        sort_three(stack_a, count);
+    } else if (size == 4) {
+        sort_four(stack_a, stack_b, count);
+    } else if (size == 5) {
+        sort_five(stack_a, stack_b, count);
+    } else if (size <= 7) {
+        sort_six_or_seven(stack_a, stack_b, count, size);
+    } else {
+        int pivot = select_pivot(*stack_a);
+        split_stacks(stack_a, stack_b, pivot, count);
         quicksort_stacks(stack_a, stack_b, count);
-    if (*stack_b && (*stack_b)->next)
-    quicksort_stacks(stack_b, stack_a, count);
-
-    merge_stacks(stack_a, stack_b, count);
+        quicksort_stacks(stack_b, stack_a, count);
+        merge_stacks(stack_a, stack_b, count);
+    }
 }
