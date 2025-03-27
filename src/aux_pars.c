@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 22:58:03 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/03/26 20:12:44 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/27 14:05:09 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	is_duplicate(int *num, int ln, int atoi)
 	return (0);
 }
 
-void	aux_s(char **split, t_stacks *stacks, int *num, int *ln)
+int	aux_s(char **split, t_stacks *stacks, int *num, int *ln)
 {
 	long	atoi;
 
@@ -57,7 +57,8 @@ void	aux_s(char **split, t_stacks *stacks, int *num, int *ln)
 		atoi = ft_atoi(*split);
 		if (is_duplicate(num, *ln, (int)atoi))
 		{
-			printf("Error: El número %ld está duplicado.\n", atoi);
+			printf("Error\n");
+			return(0);
 		}
 		num[(*ln)++] = (int)atoi;
 		push(&stacks->stack_a, (int)atoi);
@@ -71,5 +72,5 @@ void	aux_s(char **split, t_stacks *stacks, int *num, int *ln)
     }
     printf("\n"); // Nueva línea al final
 	}
-
+	return 1;
 }

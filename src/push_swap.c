@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/27 13:34:50 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/27 14:08:03 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char **argv)
 		printf("Error\n");
 		return (1);
 	}
-	printf("Todos los argumentos se procesaron correctamente.\n");
+	printf("Todos los argumentos se analizaron correctamente.\n");
 	free_stacks(stacks);
 	return (0);
 }
