@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 16:38:30 by juanrome          #+#    #+#             */
-/*   Updated: 2025/03/27 18:22:50 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/31 21:54:59 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,14 @@ int select_pivot(t_node *stack)
     int *array = malloc(size * sizeof(int));
     t_node *actual = stack;
 
-    if (!array) {
+	if(size == 0)
+	   return -1;
+
+    if (!array)
+	{
         printf("Error: Fallo al asignar memoria.\n");
-        exit(1);
+		free(array);
+        return 0;
     }
 
     for (int i = 0; i < size; i++) {
@@ -65,14 +70,7 @@ void    split_stacks(t_node **stack_a, t_node **stack_b, int pivot, int *count)
             printf("Rotando %d en stack_a\n", (*stack_a)->value);
             ra(stack_a, count);
         }
-        printf("Evaluando %d en stack_a\n", (*stack_a)->value);
-if ((*stack_a)->value < pivot) {
-    pb(stack_b, stack_a, count);
-} else {
-    ra(stack_a, count);
-}
-    }
-    
+	}
 }
 
 void    merge_stacks(t_node **stack_a, t_node **stack_b, int *count)
@@ -85,12 +83,16 @@ void    merge_stacks(t_node **stack_a, t_node **stack_b, int *count)
 void quicksort_stacks(t_node **stack_a, t_node **stack_b, int *count) {
     int size = stack_size(*stack_a);
 
-    if (size <= 1) {
-        return;
+   if (size <= 1) {
+        return; // Pila ya está ordenada.
     } else if (size == 2) {
-        sort_two(stack_a, count);
+        if (!is_sorted(*stack_a)) {
+            sort_two(stack_a, count);
+        }
     } else if (size == 3) {
-        sort_three(stack_a, count);
+        if (!is_sorted(*stack_a)) {
+            sort_three(stack_a, count);
+        }
     } else if (size == 4) {
         sort_four(stack_a, stack_b, count);
     } else if (size == 5) {

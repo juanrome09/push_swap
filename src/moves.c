@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 14:12:28 by juanrome          #+#    #+#             */
-/*   Updated: 2025/03/27 18:10:26 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/03/30 05:40:28 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,22 @@ void ra(t_node **stack, int *count)
     actual->next = temp;
     temp->next = NULL;
 }
+
+void sa(t_node **stack_a, int *count)
+{
+    t_node *temp;
+
+    if (!*stack_a || !(*stack_a)->next)
+        return;
+
+    temp = (*stack_a)->next;
+    (*stack_a)->next = temp->next;
+    temp->next = *stack_a;
+    *stack_a = temp;
+
+    (*count)++;
+}
+
 
 int compare(const void *a, const void *b) {
     return (*(int *)a) - (*(int *)b);
