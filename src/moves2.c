@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 05:46:35 by juanrome          #+#    #+#             */
-/*   Updated: 2025/03/31 21:36:01 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/04/02 19:33:34 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ int is_sorted(t_node *stack)
     while (stack && stack->next)
     {
         if (stack->value > stack->next->value) {
-            return 0; // No está ordenada.
+            return 0;
         }
         stack = stack->next;
     }
-    return 1; // Está ordenada.
+    return 1;
 }

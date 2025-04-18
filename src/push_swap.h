@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/31 21:36:35 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:46:23 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void		push(t_node **stack, int value);
 t_stacks	*init_stacks(void);
 void		free_stacks(t_stacks *stacks);
 void		free_node(t_node **stack);
-void		quicksort(t_node **stack_a, t_node **stack_b);
 
 void		ra(t_node **stack, int *count);
 void		rb(t_node **stack_b, int *count);
@@ -55,12 +54,9 @@ void		pb(t_node **stack_a, t_node **stack_b, int *count);
 void		sa(t_node **stack_a, int *count);
 void		sb(t_node **stack_b, int *count);
 void		ss(t_node **stack_a, t_node **stack_b, int *count);
+void		print_stack(t_node *stack, char *stack_name);
 int			is_sorted(t_node *stack);
 
-void		split_stacks(t_node **stack_a, t_node **stack_b, int pivot, int *count);
-int			select_pivot(t_node *stack);
-void		merge_stacks(t_node **stack_a, t_node **stack_b, int *count);
-void    	quicksort_stacks(t_node **stack_a, t_node **stack_b, int *count);
 int			stack_size(t_node *stack);
 int			compare(const void *a, const void *b);
 void 		sort_two(t_node **stack, int *count);

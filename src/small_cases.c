@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:19:21 by juanrome          #+#    #+#             */
-/*   Updated: 2025/03/31 21:52:06 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/04/10 12:57:36 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,43 @@ void sort_three(t_node **stack, int *count)
     int b = (*stack)->next->value;
     int c = (*stack)->next->next->value;
 
-    if (a > b && b > c)
-	{
-        sa(stack, count);
-        rra(stack, count);
-    }
-    else if (a > c && c > b)
+    printf("Valores actuales: a = %d, b = %d, c = %d\n", a, b, c);
+
+    if (a > b && b > c) // Caso completamente desordenado
     {
-        ra(stack, count);
+		printf("AQUI 1");
+        sa(stack, count);  // Intercambia los primeros dos
+        rra(stack, count); // Mueve el mayor al final
     }
-    else if (b > a && a > c)
+    else if (a > c && c > b) // Caso a > c > b
     {
-        sa(stack, count);
+		printf("AQUI 2");
+        ra(stack, count);  // Mueve el mayor al final
     }
-    else if (b > c && c > a)
+    else if (b > a && a > c) // Caso b > a > c
     {
-        rra(stack, count);
-        sa(stack, count);
+		printf("AQUI 3");
+        rra(stack, count);  // Intercambia los primeros dos
     }
-    else if (c > a && a > b)
+    else if (b > c && c > a) // Caso b > c > a
     {
-        rra(stack, count);
+		printf("AQUI 4");
+        rra(stack, count); // Mueve el menor al inicio
+        sa(stack, count);  // Intercambia los primeros dos
+    }
+     else if (a < b && b > c) // Caso a < b > c
+    {
+		printf("AQUI 5");
+        ra(stack, count);  // Mueve el mayor al final
+        sa(stack, count);  // Intercambia los primeros dos
+	}
+    else if (a > b && b < c)
+	{  // Mueve el mayor al final
+        sa(stack, count);  // Intercambia los primeros dos
     }
 }
+
+
 
 void sort_four(t_node **stack_a, t_node **stack_b, int *count) {
     int min = find_min(*stack_a);
@@ -72,26 +86,32 @@ void sort_five(t_node **stack_a, t_node **stack_b, int *count)
     int min = find_min(*stack_a);
     int second_min = find_second_min(*stack_a);
 
-	if (min == -1){
-		printf("no se encontro el valor min");
-		return;
-		}
-
-    while ((*stack_a)->value != min) {
-        ra(stack_a, count);
+    if (min == -1 || second_min == -1) // Validar que los mínimos sean válidos
+    {
+        printf("Error: No se pudo encontrar el mínimo o el segundo mínimo.\n");
+        return;
     }
-    pb(stack_a, stack_b, count);
 
+    // Mover el menor a stack_b
+    while ((*stack_a)->value != min)
+    {
+        ra(stack_a, count); // Rotar hasta que el menor esté al inicio
+    }
+    pb(stack_a, stack_b, count); // Push del menor a stack_b
+
+    // Mover el segundo menor a stack_b
     while ((*stack_a)->value != second_min)
     {
-        ra(stack_a, count);
+        ra(stack_a, count); // Rotar hasta que el segundo menor esté al inicio
     }
-    pb(stack_a, stack_b, count);
+    pb(stack_a, stack_b, count); // Push del segundo menor a stack_b
 
+    // Ordenar los tres elementos restantes
     sort_three(stack_a, count);
 
-    pa(stack_a, stack_b, count);
-    pa(stack_a, stack_b, count);
+    // Regresar los dos menores desde stack_b a stack_a
+    pa(stack_a, stack_b, count); // Push del segundo menor
+    pa(stack_a, stack_b, count); // Push del menor
 }
 
 void sort_six_or_seven(t_node **stack_a, t_node **stack_b, int *count, int size) {
@@ -106,9 +126,9 @@ void sort_six_or_seven(t_node **stack_a, t_node **stack_b, int *count, int size)
     }
 
     if (size == 6) {
-        sort_four(stack_a, stack_b, count);
+        sort_three(stack_a, count);
     } else {
-        sort_five(stack_a, stack_b, count);
+        sort_three(stack_a, count);
     }
 
     while (*stack_b) {
@@ -119,18 +139,18 @@ void sort_six_or_seven(t_node **stack_a, t_node **stack_b, int *count, int size)
 int find_min(t_node *stack)
 {
     if (!stack)
-	{
+    {
         printf("Error: La pila está vacía.\n");
         return -1;
     }
 
     int min = stack->value;
-    t_node *current = stack;
+    t_node *current = stack->next;
 
-    while (current) {
-        if (current->value < min) {
+    while (current)
+    {
+        if (current->value < min)
             min = current->value;
-        }
         current = current->next;
     }
 
@@ -140,22 +160,22 @@ int find_min(t_node *stack)
 int find_second_min(t_node *stack)
 {
     if (!stack || !stack->next)
-	{
+    {
         printf("Error: La pila no tiene suficientes elementos.\n");
         return -1;
     }
 
     int min = find_min(stack);
-	if (min == -1)
-		return -1; 
+    if (min == -1)
+        return -1;
+
     int second_min = INT_MAX;
     t_node *current = stack;
 
-    while (current) {
-        
-        if (current->value > min && current->value < second_min) {
+    while (current)
+    {
+        if (current->value > min && current->value < second_min)
             second_min = current->value;
-        }
         current = current->next;
     }
 
