@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 05:40:59 by juanrome          #+#    #+#             */
-/*   Updated: 2025/03/30 05:50:35 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:42:41 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,14 @@ void sb(t_node **stack_b, int *count)
     *stack_b = temp;
 
     (*count)++;
+	write(1, "sb\n", 3);
 }
 
 void ss(t_node **stack_a, t_node **stack_b, int *count)
 {
     sa(stack_a, count);
     sb(stack_b, count);
+	write(1, "ss\n", 3);
 }
 
 void rb(t_node **stack_b, int *count)
@@ -52,12 +54,14 @@ void rb(t_node **stack_b, int *count)
     last->next = temp;
 
     (*count)++;
+	write(1, "rb\n", 3);
 }
 
 void rr(t_node **stack_a, t_node **stack_b, int *count)
 {
     ra(stack_a, count);
     rb(stack_b, count);
+	write(1, "rr\n", 3);
 }
  
 void rra(t_node **stack_a, int *count)
@@ -82,4 +86,5 @@ void rra(t_node **stack_a, int *count)
     *stack_a = last;
 
     (*count)++;
+	write(1, "rra\n", 4);
 }

@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 21:54:19 by alejagom          #+#    #+#             */
-/*   Updated: 2025/03/26 17:40:16 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/04/19 17:00:34 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ long	ft_atoi(const char *str)
 		if (res * sig < INT_MIN || res * sig > INT_MAX)
 		{
 			printf("Error: Número fuera del rango permitido para un int.\n");
-			return(1);
+			return(0);
 		}
 	}
 	return (res * sig);

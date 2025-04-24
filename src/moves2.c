@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 05:46:35 by juanrome          #+#    #+#             */
-/*   Updated: 2025/04/02 19:33:34 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:42:31 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@ void rrb(t_node **stack_b, int *count)
     *stack_b = last;
 
     (*count)++;
+	write(1, "rrb\n", 4);
 }
 
 void rrr(t_node **stack_a, t_node **stack_b, int *count)
 {
     rra(stack_a, count);
     rrb(stack_b, count);
+	write(1, "rrr\n", 4);
 }
 
 int is_sorted(t_node *stack)

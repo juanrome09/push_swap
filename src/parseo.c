@@ -6,63 +6,64 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/02 20:37:40 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/04/24 17:56:27 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_wd(char **words)
-{
-	int	i;
+#include "push_swap.h"
 
-	i = 0;
-	if (words == NULL)
-		return ;
-	while (words[i])
-	{
-		free(words[i]);
-		i++;
-	}
-	free(words);
+void free_wd(char **words)
+{
+    int i = 0;
+
+    if (words == NULL)
+        return ;
+    while (words[i])
+    {
+        free(words[i]);
+        i++;
+    }
+    free(words);
 }
 
-int	check_split(char **split_result, int *numbers)
+int check_split(char **split_result, int *numbers)
 {
-	if (!split_result || !isnumber(split_result))
-	{
-		free_wd(split_result);
-		return (0);
-	}
-	return (1);
+    if (!split_result || !isnumber(split_result))
+    {
+        free_wd(split_result);
+        return (0);
+    }
+    return (1);
 }
 
-int	parseo(char **args, t_stacks *stacks)
-{
-	int		i;
-	int		ln;
-	int		*num;
-	char	**spl_re;
+int parseo(char **args, t_stacks *stacks) {
+    int i = 1;
+    int ln = 0;
+    int *num = NULL;
+    char **spl_re;
 
-	i = 1;
-	ln = 0;
-	num = malloc(sizeof(int));
-	if (!num)
-		return (0);
-	while (args[i] != NULL)
-	{
-		spl_re = ft_split(args[i], ' ');
-		if (!check_split(spl_re, num))
+    while (args[i] != NULL) {
+        spl_re = ft_split(args[i], ' ');
+
+        if (!spl_re)
 		{
-			free(num);
-			free_stacks(stacks);
-			return (0);
-		}	
-		aux_s (spl_re, stacks, num, &ln);
-		free_wd (spl_re);
-		i++;
-	}
-	free (num);
-	printf ("cantidad de args: %d\n", ln);
-	return (1);
+            return 0;
+        }
+        if (!aux_s(spl_re, stacks, &num, &ln))
+		{
+            free(num);
+            free_stacks(stacks);
+            free_wd(spl_re);
+            return 0;
+        }
+
+        free_wd(spl_re);
+        i++;
+    }
+
+    free(num);
+    return 1;
 }
+
