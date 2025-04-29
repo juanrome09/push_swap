@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alejogogi <alejogogi@student.42.fr>        +#+  +:+       +#+         #
+#    By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/18 10:06:50 by alejogogi         #+#    #+#              #
-#    Updated: 2024/10/24 17:22:39 by alejogogi        ###   ########.fr        #
+#    Updated: 2025/04/29 18:48:17 by juanrome         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC =	ft_split.c ft_strtrim.c ft_strmapi.c ft_strjoin.c ft_atoi.c\
+SRC =	ft_split.c ft_strtrim.c ft_strmapi.c ft_strjoin.c ft_atoi_long.c\
 		ft_bzero.c ft_substr.c ft_calloc.c ft_isalnum.c ft_isalpha.c\
 		ft_isascii.c ft_isdigit.c ft_isprint.c ft_itoa.c ft_memchr.c\
 		ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_putchar_fd.c\

@@ -6,11 +6,9 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/24 17:56:27 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:56:33 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "push_swap.h"
 
 #include "push_swap.h"
 
@@ -38,32 +36,33 @@ int check_split(char **split_result, int *numbers)
     return (1);
 }
 
-int parseo(char **args, t_stacks *stacks) {
-    int i = 1;
-    int ln = 0;
-    int *num = NULL;
-    char **spl_re;
+int	parseo(char **args, t_stacks *stacks)
+{
+	int		i = 1;
+	int		ln = 0;
+	int		*num = NULL;
+	char	**spl_re;
 
-    while (args[i] != NULL) {
-        spl_re = ft_split(args[i], ' ');
-
-        if (!spl_re)
+	while (args[i])
+	{
+		spl_re = ft_split(args[i], ' ');
+		if (!spl_re || !isnumber(spl_re))
 		{
-            return 0;
-        }
-        if (!aux_s(spl_re, stacks, &num, &ln))
+			free_wd(spl_re);
+			write(2, "Error\n", 6);
+			exit(EXIT_FAILURE);
+		}
+		if (!aux_s(spl_re, stacks, &num, &ln))
 		{
-            free(num);
-            free_stacks(stacks);
-            free_wd(spl_re);
-            return 0;
-        }
-
-        free_wd(spl_re);
-        i++;
-    }
-
-    free(num);
-    return 1;
+			free(num);
+			free_stacks(stacks);
+			free_wd(spl_re);
+			exit(EXIT_FAILURE);
+		}
+		free_wd(spl_re);
+		i++;
+	}
+	free(num);
+	return (1);
 }
 

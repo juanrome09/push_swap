@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atoi_long.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 21:54:19 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/19 17:00:34 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:50:29 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	ft_atoi(const char *str)
+#include <limits.h>
+#include <unistd.h>
+
+long	ft_atoi_long(const char *str)
 {
 	long	res;
-	long	sig;
+	int		sig;
 
 	res = 0;
 	sig = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\v'
-		|| *str == '\f' || *str == '\r')
+	while (*str == ' ' || *str == '\t' || *str == '\n'
+		|| *str == '\v' || *str == '\f' || *str == '\r')
 		str++;
 	if (*str == '-' || *str == '+')
 	{
@@ -28,18 +31,18 @@ long	ft_atoi(const char *str)
 			sig = -1;
 		str++;
 	}
-	while (*str >= 48 && *str <= 57)
+	if (!(*str >= '0' && *str <= '9'))
+		return (2147483648);
+	while (*str >= '0' && *str <= '9')
 	{
 		res = res * 10 + (*str - '0');
+		if (res * sig > INT_MAX || res * sig < INT_MIN)
+			return (2147483648);
 		str++;
-		if (res * sig < INT_MIN || res * sig > INT_MAX)
-		{
-			printf("Error: Número fuera del rango permitido para un int.\n");
-			return(0);
-		}
 	}
 	return (res * sig);
 }
+
 
 /*
 int	main(void)

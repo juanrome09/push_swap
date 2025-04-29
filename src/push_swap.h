@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/24 17:53:35 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:35:31 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,12 @@ int         count_index(t_node *stack, int index);
 int         is_duplicate(int *num, int ln, int atoi);
 int         aux_s(char **split, t_stacks *stacks, int **num, int *ln);
 int         parseo(char **args, t_stacks *stacks);
+int			is_valid_number(const char *s);
 int         isnumber(char **str);
 int         single_number(const char *str);
 int         are_all_numbers(char **strs);
 void        free_wd(char **words);
 
+
+void print_stack(t_node *stack, char *stack_name);
 #endif

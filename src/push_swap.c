@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/24 17:33:53 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/04/29 18:34:25 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,28 +23,23 @@ int main(int argc, char **argv)
 
     t_stacks *stacks = init_stacks();
     if (!stacks) {
-        printf("Error: No se pudo inicializar las pilas.\n");
+        write(2, "Error\n", 6);
         return 1;
     }
 
     if (!parseo(argv, stacks)) {
         free_stacks(stacks);
-        printf("Error: No se pudieron analizar los argumentos.\n");
+        write(2, "Error\n", 6);
         return 1;
     }
 
-    if (!stacks->stack_a) {
-        printf("Error: stack_a está vacío después del análisis.\n");
-        free_stacks(stacks);
-        return 1;
-    }
+	if (is_sorted(stacks->stack_a))
+	{
+		free_stacks(stacks);
+		return (0);
+	}
 
     int size = stack_size(stacks->stack_a);
-    if (size <= 0) {
-        printf("Error: Tamaño del stack inválido.\n");
-        free_stacks(stacks);
-        return 1;
-    }
 
     if (size == 2)
         sort_two(&stacks->stack_a, &counter_m);
@@ -57,10 +52,10 @@ int main(int argc, char **argv)
     else if (size <= 7)
         sort_six_or_seven(&stacks->stack_a, &stacks->stack_b, &counter_m, size);
     else
-        main_sort(stacks, &counter_m);  // 💡 Aquí va tu nueva función elegante
+        main_sort(stacks, &counter_m);
 
     // Debug opcional:
-	//print_stack(stacks->stack_a, "stack_a");
+	print_stack(stacks->stack_a, "stack_a");
     printf("Movimientos totales: %d\n", counter_m);
 
     free_stacks(stacks);
