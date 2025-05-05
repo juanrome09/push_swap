@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/29 18:35:31 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/05 11:31:57 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,8 @@ int         isnumber(char **str);
 int         single_number(const char *str);
 int         are_all_numbers(char **strs);
 void        free_wd(char **words);
+int			check_split(char **split_result);
 
+void		print_stack(t_node *stack);
 
-void print_stack(t_node *stack, char *stack_name);
 #endif

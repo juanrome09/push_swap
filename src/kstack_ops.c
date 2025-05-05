@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 16:38:30 by juanrome          #+#    #+#             */
-/*   Updated: 2025/04/29 18:03:20 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/05 11:34:04 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int find_position_by_index(t_node *stack, int index) {
     return -1;
 }
 
-void print_stack(t_node *stack, char *stack_name)
+void print_stack(t_node *stack)
 {
     while (stack)
     {

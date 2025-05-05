@@ -3,28 +3,28 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alejagom <alejagom@student.42madird.fr>    +#+  +:+       +#+         #
+#    By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/03/10 17:21:35 by alejagom          #+#    #+#              #
-#    Updated: 2025/03/15 09:35:35 by alejagom         ###   ########.fr        #
+#    Updated: 2025/05/05 11:21:57 by juanrome         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap.a
+NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g3
 
-SRC = src/push_swap.c src/parceo.c
+SRC_DIR = ./src
+SRC = $(wildcard $(SRC_DIR)/*.c)
 OBJ = $(SRC:.c=.o)
-LIB_DIR = libft
-LIBFT =	$(LIB_DIR)/libft.a
+
+LIB_DIR = ./libft
+LIBFT = $(LIB_DIR)/libft.a
 
 INCLUDE = include/push_swap.h
-CC_FLAGS = -I./include
 LIBFT_INCLUDE = libft
 
-AR = ar rcs
 RM = rm -f
 
 .PHONY: all clean fclean re
@@ -35,12 +35,12 @@ $(LIBFT):
 	$(MAKE) -C $(LIB_DIR)
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(AR) $(NAME) $(OBJ)
- 
+	$(CC) $(CFLAGS) -I$(LIBFT_INCLUDE) -I. -o $(NAME) $(OBJ) $(LIBFT)
+
 %.o: %.c $(INCLUDE)
-	$(CC) $(CFLAGS) -I$(LIBFT_INCLUDE) -I. -c $< -o $@ 
-	
-clean: 
+	$(CC) $(CFLAGS) -I$(LIBFT_INCLUDE) -I. -c $< -o $@
+
+clean:
 	$(RM) $(OBJ)
 	$(MAKE) -C $(LIB_DIR) clean
 

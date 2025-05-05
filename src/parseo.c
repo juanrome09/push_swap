@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/29 18:56:33 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/05 11:27:47 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void free_wd(char **words)
     free(words);
 }
 
-int check_split(char **split_result, int *numbers)
+int check_split(char **split_result)
 {
     if (!split_result || !isnumber(split_result))
     {
