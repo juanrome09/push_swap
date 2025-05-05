@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:40 by alejagom          #+#    #+#             */
-/*   Updated: 2025/05/05 11:31:57 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/05 19:03:19 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_stacks
 
 // Funciones de inicialización y liberación de pilas
 t_node      *create_node(int value);
-int         push_node(t_node **stack, int value);
+int         push_node_end(t_node **stack, int value);
 t_stacks    *init_stacks(void);
 void        free_stacks(t_stacks *stacks);
 void        free_node(t_node **stack);

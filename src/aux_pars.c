@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 22:58:03 by alejogogi         #+#    #+#             */
-/*   Updated: 2025/04/29 18:58:04 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/05 19:02:58 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	aux_s(char **split, t_stacks *stacks, int **num, int *ln)
 		free(*num);
 		*num = new_array;
 
-		if (!push_node(&stacks->stack_a, (int)n))
+		if (!push_node_end(&stacks->stack_a, (int)n))
 			return (0);
 
 		(*ln)++;
