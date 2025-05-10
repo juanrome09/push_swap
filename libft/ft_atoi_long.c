@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 21:54:19 by alejagom          #+#    #+#             */
-/*   Updated: 2025/04/29 18:50:29 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/09 20:03:46 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ long	ft_atoi_long(const char *str)
 	}
 	return (res * sig);
 }
-
 
 /*
 int	main(void)

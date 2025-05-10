@@ -6,89 +6,91 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 20:36:41 by juanrome          #+#    #+#             */
-/*   Updated: 2025/05/05 19:02:41 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/09 18:04:47 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include "push_swap.h"
-
-t_stacks *init_stacks(void)
+t_stacks	*init_stacks(void)
 {
-    t_stacks *stacks;
+	t_stacks	*stacks;
 
-    stacks = malloc(sizeof(t_stacks));
-    if (!stacks)
-        return NULL;
-    stacks->stack_a = NULL;
-    stacks->stack_b = NULL;
-    return (stacks);
+	stacks = malloc(sizeof(t_stacks));
+	if (!stacks)
+		return (NULL);
+	stacks->stack_a = NULL;
+	stacks->stack_b = NULL;
+	return (stacks);
 }
 
-t_node *create_node(int value) {
-    t_node *new_node = (t_node *)malloc(sizeof(t_node));
-    if (!new_node)
-        return NULL;
-    new_node->value = value;
-    new_node->next = NULL;
-    return new_node;
+t_node	*create_node(int value)
+{
+	t_node	*new_node;
+
+	new_node = (t_node *)malloc(sizeof(t_node));
+	if (!new_node)
+		return (NULL);
+	new_node->value = value;
+	new_node->next = NULL;
+	return (new_node);
 }
 
-int push_node_end(t_node **stack, int value)
+int	push_node_end(t_node **stack, int value)
 {
-    t_node *new_node = create_node(value);
-    t_node *temp;
+	t_node	*new_node;
+	t_node	*temp;
 
-    if (!new_node)
-        return 0;
-
-    if (!*stack)
-    {
-        *stack = new_node;
-        return 1;
-    }
-
-    temp = *stack;
-    while (temp->next)
-        temp = temp->next;
-
-    temp->next = new_node;
-    return 1;
+	new_node = create_node(value);
+	if (!new_node)
+		return (0);
+	if (!*stack)
+	{
+		*stack = new_node;
+		return (1);
+	}
+	temp = *stack;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new_node;
+	return (1);
 }
 
-void free_node(t_node **stack)
+void	free_node(t_node **stack)
 {
-    t_node *actual = *stack;
-    while (actual != NULL)
-    {
-        t_node *temp = actual;
-        actual = actual->next;
-        free(temp);
-    }
-    *stack = NULL;
+	t_node	*actual;
+	t_node	*temp;
+
+	actual = *stack;
+	while (actual != NULL)
+	{
+		temp = actual;
+		actual = actual->next;
+		free(temp);
+	}
+	*stack = NULL;
 }
 
-void free_stacks(t_stacks *stacks)
+void	free_stacks(t_stacks *stacks)
 {
-    if (!stacks)
-        return;
+	t_node	*current;
+	t_node	*temp;
 
-    t_node *current = stacks->stack_a;
-    while (current)
-    {
-        t_node *temp = current;
-        current = current->next;
-        free(temp);
-    }
-
-    current = stacks->stack_b;
-    while (current)
-    {
-        t_node *temp = current;
-        current = current->next;
-        free(temp);
-    }
-
-    free(stacks);
+	if (!stacks)
+		return ;
+	current = stacks->stack_a;
+	while (current)
+	{
+		temp = current;
+		current = current->next;
+		free(temp);
+	}
+	current = stacks->stack_b;
+	while (current)
+	{
+		temp = current;
+		current = current->next;
+		free(temp);
+	}
+	free(stacks);
 }

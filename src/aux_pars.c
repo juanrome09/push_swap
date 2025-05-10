@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 22:58:03 by alejogogi         #+#    #+#             */
+/*   Created: 2025/03/20 22:58:03 by juanrome         #+#    #+#             */
 /*   Updated: 2025/05/05 19:02:58 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_valid_number(const char *s)
+int	val_num(const char *s)
 {
 	if (!s || *s == '\0')
 		return (0);
@@ -31,18 +31,19 @@ int	is_valid_number(const char *s)
 
 int	isnumber(char **strs)
 {
-	int	i = 0;
+	int	i;
 
+	i = 0;
 	while (strs[i])
 	{
-		if (!is_valid_number(strs[i]))
+		if (!val_num(strs[i]))
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int	is_duplicate(int *num, int ln, int value)
+int	is_dup(int *num, int ln, int value)
 {
 	int	i;
 
@@ -56,43 +57,45 @@ int	is_duplicate(int *num, int ln, int value)
 	return (0);
 }
 
-
 int	aux_s(char **split, t_stacks *stacks, int **num, int *ln)
 {
-	long	n;
-	int		*new_array;
 	int		i;
-	int		j;
+	long	n;
 
 	i = 0;
 	while (split[i])
 	{
 		n = ft_atoi_long(split[i]);
-		if (n == 2147483648 || !is_valid_number(split[i]) || is_duplicate(*num, *ln, (int)n))
-		{
-			write(2, "Error\n", 6);
+		if (n == 2147483648 || is_dup(*num, *ln, (int)n))
 			return (0);
-		}
-
-		new_array = malloc(sizeof(int) * (*ln + 1));
-		if (!new_array)
+		if(!val_num(split[i]))
 			return (0);
-
-		j = 0;
-		while (j < *ln)
-		{
-			new_array[j] = (*num)[j];
-			j++;
-		}
-		new_array[*ln] = (int)n;
-		free(*num);
-		*num = new_array;
-
+		if (!add_number(num, ln, (int)n))
+			return (0);
 		if (!push_node_end(&stacks->stack_a, (int)n))
 			return (0);
-
-		(*ln)++;
 		i++;
 	}
+	return (1);
+}
+
+int	add_number(int **num, int *ln, int n)
+{
+	int	*new;
+	int	j;
+
+	new = malloc(sizeof(int) * (*ln + 1));
+	if (!new)
+		return (0);
+	j = 0;
+	while (j < *ln)
+	{
+		new[j] = (*num)[j];
+		j++;
+	}
+	new[*ln] = n;
+	free(*num);
+	*num = new;
+	(*ln)++;
 	return (1);
 }
