@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by juanrome          #+#    #+#             */
-/*   Updated: 2025/05/11 23:08:34 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/11 23:12:35 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,12 @@ int	main(int argc, char **argv)
 	}
 	else
 		main_sort(stacks, &counter_m);
-	print_stack(stacks->stack_a);
-	printf("Movimientos totales: %d\n", counter_m);
 	free_stacks(stacks);
 	return (0);
 }
 
 // Debug opcional:
-void	print_stack(t_node *stack)
+/* void	print_stack(t_node *stack)
 {
 	while (stack)
 	{
@@ -52,3 +50,5 @@ void	print_stack(t_node *stack)
 		stack = stack->next;
 	}
 }
+print_stack(stacks->stack_a);
+	printf("Movimientos totales: %d\n", counter_m); */

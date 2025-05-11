@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:19:21 by juanrome          #+#    #+#             */
-/*   Updated: 2025/05/11 23:06:01 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/11 23:14:05 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	sort_fouven(t_node **stack_a, t_node **stack_b, int *count, int len)
 	{
 		min_value = find_min(*stack_a);
 		if (min_value == -1)
-			return;
+			return ;
 		while ((*stack_a)->value != min_value)
 		{
 			if (get_index_distance(*stack_a, min_value) <= len / 2)
@@ -88,4 +88,3 @@ int	get_index_distance(t_node *stack, int value)
 	}
 	return (i);
 }
-
