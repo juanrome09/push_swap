@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 14:30:58 by juanrome          #+#    #+#             */
-/*   Updated: 2025/05/09 20:57:49 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/11 23:05:32 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,9 @@ void				ss(t_node **stack_a, t_node **stack_b, int *count);
 // Funciones de ordenación
 void				sort_two(t_node **stack, int *count);
 void				sort_three(t_node **stack, int *count);
-void				sort_four(t_node **stack_a, t_node **stack_b, int *count);
-void				sort_five(t_node **stack_a, t_node **stack_b, int *count);
+void				sort_fouven(t_node **stack_a, t_node **stack_b,
+						int *count, int len);
+int					get_index_distance(t_node *stack, int value);
 void				k_sort2(t_stacks *stacks, int len, int *count);
 void				k_sort1(t_stacks *stacks, int len, int *count);
 void				main_sort(t_stacks *stacks, int *count);
@@ -86,6 +87,6 @@ int					are_all_numbers(char **strs);
 void				free_wd(char **words);
 int					check_split(char **split_result);
 
-/* void				print_stack(t_node *stack); */
+void				print_stack(t_node *stack);
 
 #endif

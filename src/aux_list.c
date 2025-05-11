@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 20:36:41 by juanrome          #+#    #+#             */
-/*   Updated: 2025/05/09 18:04:47 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/11 17:23:10 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_stacks	*init_stacks(void)
 {
-	t_stacks	*stacks;
+	t_stacks	*stacks;	
 
 	stacks = malloc(sizeof(t_stacks));
 	if (!stacks)

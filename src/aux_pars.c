@@ -68,7 +68,7 @@ int	aux_s(char **split, t_stacks *stacks, int **num, int *ln)
 		n = ft_atoi_long(split[i]);
 		if (n == 2147483648 || is_dup(*num, *ln, (int)n))
 			return (0);
-		if(!val_num(split[i]))
+		if (!val_num(split[i]))
 			return (0);
 		if (!add_number(num, ln, (int)n))
 			return (0);

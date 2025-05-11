@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 18:19:21 by juanrome          #+#    #+#             */
-/*   Updated: 2025/05/09 19:54:53 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/11 23:06:01 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,42 +49,43 @@ void	sort_three(t_node **stack, int *count)
 	}
 }
 
-void	sort_four(t_node **stack_a, t_node **stack_b, int *count)
+void	sort_fouven(t_node **stack_a, t_node **stack_b, int *count, int len)
 {
-	int	min;
+	int	min_value;
+	int	remaining;
 
-	min = find_min(*stack_a);
-	if (min == -1)
-		return ;
-	while ((*stack_a)->value != min)
+	remaining = len - 3;
+	while (remaining--)
 	{
-		ra(stack_a, count);
+		min_value = find_min(*stack_a);
+		if (min_value == -1)
+			return;
+		while ((*stack_a)->value != min_value)
+		{
+			if (get_index_distance(*stack_a, min_value) <= len / 2)
+				ra(stack_a, count);
+			else
+				rra(stack_a, count);
+		}
+		pb(stack_a, stack_b, count);
 	}
-	pb(stack_a, stack_b, count);
 	sort_three(stack_a, count);
-	pa(stack_a, stack_b, count);
+	while (*stack_b)
+		pa(stack_a, stack_b, count);
 }
 
-void	sort_five(t_node **stack_a, t_node **stack_b, int *count)
+int	get_index_distance(t_node *stack, int value)
 {
-	int	min;
-	int	second_min;
+	int	i;
 
-	min = find_min(*stack_a);
-	second_min = find_second_min(*stack_a);
-	if (min == -1 || second_min == -1)
-		return ;
-	while ((*stack_a)->value != min)
+	i = 0;
+	while (stack)
 	{
-		ra(stack_a, count);
+		if (stack->value == value)
+			return (i);
+		stack = stack->next;
+		i++;
 	}
-	pb(stack_a, stack_b, count);
-	while ((*stack_a)->value != second_min)
-	{
-		ra(stack_a, count);
-	}
-	pb(stack_a, stack_b, count);
-	sort_three(stack_a, count);
-	pa(stack_a, stack_b, count);
-	pa(stack_a, stack_b, count);
+	return (i);
 }
+

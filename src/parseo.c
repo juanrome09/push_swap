@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 17:55:20 by juanrome          #+#    #+#             */
-/*   Updated: 2025/05/10 17:00:54 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/11 22:36:40 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int	parseo(char **args, t_stacks *stacks)
 	free(num);
 	return (1);
 }
+
 int	parseo2(char *arg, t_stacks *stacks, int **num, int *ln)
 {
 	char	**spl_re;
@@ -78,5 +79,3 @@ int	parseo2(char *arg, t_stacks *stacks, int **num, int *ln)
 	free_wd(spl_re);
 	return (1);
 }
-
-
