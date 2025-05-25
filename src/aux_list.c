@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 20:36:41 by juanrome          #+#    #+#             */
-/*   Updated: 2025/05/11 17:23:10 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/24 21:09:36 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,6 @@ t_stacks	*init_stacks(void)
 	stacks->stack_a = NULL;
 	stacks->stack_b = NULL;
 	return (stacks);
-}
-
-t_node	*create_node(int value)
-{
-	t_node	*new_node;
-
-	new_node = (t_node *)malloc(sizeof(t_node));
-	if (!new_node)
-		return (NULL);
-	new_node->value = value;
-	new_node->next = NULL;
-	return (new_node);
 }
 
 int	push_node_end(t_node **stack, int value)
@@ -54,6 +42,18 @@ int	push_node_end(t_node **stack, int value)
 		temp = temp->next;
 	temp->next = new_node;
 	return (1);
+}
+
+t_node	*create_node(int value)
+{
+	t_node	*new_node;
+
+	new_node = (t_node *)malloc(sizeof(t_node));
+	if (!new_node)
+		return (NULL);
+	new_node->value = value;
+	new_node->next = NULL;
+	return (new_node);
 }
 
 void	free_node(t_node **stack)

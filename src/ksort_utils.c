@@ -6,11 +6,25 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 17:48:53 by juanrome          #+#    #+#             */
-/*   Updated: 2025/05/09 20:00:42 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/25 02:06:13 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	init_stacks_parse(int argc, char **argv, t_stacks **stacks)
+{
+	if (argc < 2)
+		return (0);
+	*stacks = init_stacks();
+	if (!*stacks || !parseo(argv, *stacks))
+	{
+		free_stacks(*stacks);
+		write(2, "Error\n", 6);
+		return (0);
+	}
+	return (1);
+}
 
 int	ft_sqrt(int nmb)
 {
@@ -26,21 +40,6 @@ int	ft_sqrt(int nmb)
 	if (i * i - nmb < nmb - (i - 1) * (i - 1))
 		return (i);
 	return (i - 1);
-}
-
-int	count_index(t_node *stack, int index)
-{
-	int	pos;
-
-	pos = 0;
-	while (stack)
-	{
-		if (stack->index == index)
-			return (pos);
-		stack = stack->next;
-		pos++;
-	}
-	return (-1);
 }
 
 void	k_sort1(t_stacks *stacks, int len, int *count)
@@ -68,6 +67,21 @@ void	k_sort1(t_stacks *stacks, int len, int *count)
 	}
 }
 
+int	count_index(t_node *stack, int index)
+{
+	int	pos;
+
+	pos = 0;
+	while (stack)
+	{
+		if (stack->index == index)
+			return (pos);
+		stack = stack->next;
+		pos++;
+	}
+	return (-1);
+}
+
 void	k_sort2(t_stacks *stacks, int len, int *count)
 {
 	while (--len >= 0)
@@ -85,18 +99,4 @@ void	k_sort2(t_stacks *stacks, int len, int *count)
 		}
 		pa(&stacks->stack_a, &stacks->stack_b, count);
 	}
-}
-
-int	init_stacks_parse(int argc, char **argv, t_stacks **stacks)
-{
-	if (argc < 2)
-		return (0);
-	*stacks = init_stacks();
-	if (!*stacks || !parseo(argv, *stacks))
-	{
-		free_stacks(*stacks);
-		write(2, "Error\n", 6);
-		return (0);
-	}
-	return (1);
 }

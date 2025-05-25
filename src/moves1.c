@@ -6,32 +6,11 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 05:40:59 by juanrome          #+#    #+#             */
-/*   Updated: 2025/04/24 17:42:41 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/25 02:06:36 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sb(t_node **stack_b, int *count)
-{
-	t_node	*temp;
-
-	if (!*stack_b || !(*stack_b)->next)
-		return ;
-	temp = (*stack_b)->next;
-	(*stack_b)->next = temp->next;
-	temp->next = *stack_b;
-	*stack_b = temp;
-	(*count)++;
-	write(1, "sb\n", 3);
-}
-
-void	ss(t_node **stack_a, t_node **stack_b, int *count)
-{
-	sa(stack_a, count);
-	sb(stack_b, count);
-	write(1, "ss\n", 3);
-}
 
 void	rb(t_node **stack_b, int *count)
 {
@@ -49,13 +28,6 @@ void	rb(t_node **stack_b, int *count)
 	last->next = temp;
 	(*count)++;
 	write(1, "rb\n", 3);
-}
-
-void	rr(t_node **stack_a, t_node **stack_b, int *count)
-{
-	ra(stack_a, count);
-	rb(stack_b, count);
-	write(1, "rr\n", 3);
 }
 
 void	rra(t_node **stack_a, int *count)
@@ -77,4 +49,38 @@ void	rra(t_node **stack_a, int *count)
 	*stack_a = last;
 	(*count)++;
 	write(1, "rra\n", 4);
+}
+
+void	rrb(t_node **stack_b, int *count)
+{
+	t_node	*last;
+	t_node	*second_last;
+
+	if (!*stack_b || !(*stack_b)->next)
+		return ;
+	last = *stack_b;
+	second_last = NULL;
+	while (last->next)
+	{
+		second_last = last;
+		last = last->next;
+	}
+	second_last->next = NULL;
+	last->next = *stack_b;
+	*stack_b = last;
+	(*count)++;
+	write(1, "rrb\n", 4);
+}
+
+int	is_sorted(t_node *stack)
+{
+	while (stack && stack->next)
+	{
+		if (stack->value > stack->next->value)
+		{
+			return (0);
+		}
+		stack = stack->next;
+	}
+	return (1);
 }

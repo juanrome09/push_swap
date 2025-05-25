@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 14:30:58 by juanrome          #+#    #+#             */
-/*   Updated: 2025/05/11 23:05:32 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/25 05:32:55 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,15 @@ void				free_node(t_node **stack);
 void				ra(t_node **stack, int *count);
 void				rb(t_node **stack_b, int *count);
 void				rrb(t_node **stack_b, int *count);
-void				rr(t_node **stack_a, t_node **stack_b, int *count);
 void				rra(t_node **stack_a, int *count);
-void				rrr(t_node **stack_a, t_node **stack_b, int *count);
 void				pa(t_node **stack_a, t_node **stack_b, int *count);
 void				pb(t_node **stack_a, t_node **stack_b, int *count);
 void				sa(t_node **stack_a, int *count);
-void				sb(t_node **stack_b, int *count);
-void				ss(t_node **stack_a, t_node **stack_b, int *count);
 
 // Funciones de ordenación
 void				sort_two(t_node **stack, int *count);
 void				sort_three(t_node **stack, int *count);
-void				sort_fouven(t_node **stack_a, t_node **stack_b,
+void				sort_fouve(t_node **stack_a, t_node **stack_b,
 						int *count, int len);
 int					get_index_distance(t_node *stack, int value);
 void				k_sort2(t_stacks *stacks, int len, int *count);
@@ -65,10 +61,6 @@ void				main_sort(t_stacks *stacks, int *count);
 int					is_sorted(t_node *stack);
 int					stack_size(t_node *stack);
 int					find_min(t_node *stack);
-int					find_second_min(t_node *stack);
-int					find_max(t_node *stack);
-int					find_max_index(t_node *stack);
-int					find_position_by_index(t_node *stack, int index);
 void				assign_indices(t_node *stack_a);
 int					ft_sqrt(int nmb);
 int					count_index(t_node *stack, int index);
@@ -82,8 +74,6 @@ int					parseo(char **args, t_stacks *stacks);
 int					parseo2(char *arg, t_stacks *stacks, int **num, int *ln);
 int					val_num(const char *s);
 int					isnumber(char **str);
-int					single_number(const char *str);
-int					are_all_numbers(char **strs);
 void				free_wd(char **words);
 int					check_split(char **split_result);
 

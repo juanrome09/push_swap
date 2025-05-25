@@ -12,6 +12,20 @@
 
 #include "push_swap.h"
 
+int	isnumber(char **strs)
+{
+	int	i;
+
+	i = 0;
+	while (strs[i])
+	{
+		if (!val_num(strs[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	val_num(const char *s)
 {
 	if (!s || *s == '\0')
@@ -27,34 +41,6 @@ int	val_num(const char *s)
 		s++;
 	}
 	return (1);
-}
-
-int	isnumber(char **strs)
-{
-	int	i;
-
-	i = 0;
-	while (strs[i])
-	{
-		if (!val_num(strs[i]))
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	is_dup(int *num, int ln, int value)
-{
-	int	i;
-
-	i = 0;
-	while (i < ln)
-	{
-		if (num[i] == value)
-			return (1);
-		i++;
-	}
-	return (0);
 }
 
 int	aux_s(char **split, t_stacks *stacks, int **num, int *ln)
@@ -77,6 +63,20 @@ int	aux_s(char **split, t_stacks *stacks, int **num, int *ln)
 		i++;
 	}
 	return (1);
+}
+
+int	is_dup(int *num, int ln, int value)
+{
+	int	i;
+
+	i = 0;
+	while (i < ln)
+	{
+		if (num[i] == value)
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
 int	add_number(int **num, int *ln, int n)

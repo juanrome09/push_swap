@@ -6,7 +6,7 @@
 /*   By: juanrome <juanrome@student.42madrid.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 17:23:47 by juanrome          #+#    #+#             */
-/*   Updated: 2025/05/11 23:12:35 by juanrome         ###   ########.fr       */
+/*   Updated: 2025/05/25 05:55:06 by juanrome         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,24 +31,23 @@ int	main(int argc, char **argv)
 		sort_two(&stacks->stack_a, &counter_m);
 	else if (size == 3)
 		sort_three(&stacks->stack_a, &counter_m);
-	else if (size == 5)
+	else if (size == 4 || 5)
 	{
-		sort_fouven(&stacks->stack_a, &stacks->stack_b, &counter_m, size);
+		sort_fouve(&stacks->stack_a, &stacks->stack_b, &counter_m, size);
 	}
 	else
 		main_sort(stacks, &counter_m);
 	free_stacks(stacks);
 	return (0);
 }
-
-// Debug opcional:
-/* void	print_stack(t_node *stack)
+/* Debug opcional:
+void	print_stack(t_node *stack)
 {
 	while (stack)
 	{
 		printf("%d -> ", stack->value);
 		stack = stack->next;
 	}
-}
-print_stack(stacks->stack_a);
+} 
+ print_stack(stacks->stack_a);
 	printf("Movimientos totales: %d\n", counter_m); */
